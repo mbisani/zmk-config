@@ -22,6 +22,26 @@ I own a **Sofle Choc Pro**. Unless I say otherwise, only edit `config/sofle_choc
 
 My physical build uses **`nice_view`** displays and has **no rotary encoders**, even though `boards/arm/sofle_choc_pro/sofle_choc_pro.zmk.yml` lists `encoder` as a board feature and `config/sofle_choc_pro.keymap` still has `sensor-bindings` entries — that metadata/keymap reflects the board's hardware *capability*, not my actual build. Don't assume encoder bindings do anything on my keyboard, and don't add encoder-dependent features expecting them to work without confirming first.
 
+## My configuration philosophy
+
+Goal: get the keymap right once, deliberately, rather than repeatedly redoing it. Some relearning is fine, but too many changes at once risks frustration and giving up.  I will keep using the MacBook keyboard alongside this one — so changes need to stay learnable and not clash too badly with it.
+
+Process:
+- Iterate in small, narrowly-scoped changes — one concrete problem or missing function per change (a symbol that's unreachable/awkward, easily confused keys, missing navigation/media control, etc.), not sweeping redesigns.
+- Leave enough time between changes to actually absorb one before making the next.
+- Started from the Sofle's stock keymap (close to US-ANSI) as the baseline and change incrementally from there.
+- Prioritize completeness and logical placement first ("can I reach every symbol and remember where it lives?"); optimize ergonomics/efficiency only after that's solid.
+- Track changes in Git with clearly named commits/changelog; keep a README describing the current layout plus a diagram.
+
+Preferences, in priority order:
+- Characters/commands used frequently when programming and writing prose in English and German are most important.
+- Prefer bindings that feel consistent with the MacBook keyboard, or are otherwise easy to remember.
+- Lean toward [Miryoku](https://github.com/manna-harbour/miryoku/) layout principles ([reference manual](https://github.com/manna-harbour/miryoku/tree/master/docs/reference)) where practical:
+  - Favor the home row and inner thumb keys.
+  - Use layers instead of reaching — writing stays on the inner 5×3 keys; outer keys are for other functions.
+  - Use both hands to avoid contortions; assign (and possibly duplicate) modifiers so every key is reachable with every modifier combo without contortion.
+  - Keep Mac and Windows behavior as consistent as possible with each other.
+
 ## Build
 
 There is no local build — firmware is compiled by GitHub Actions on every push/PR via ZMK's reusable workflow:
