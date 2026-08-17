@@ -43,6 +43,18 @@
       hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 50 51 52 53 54>;
       hold-trigger-on-release;
     };
+
+    // Thumb layer-taps: balanced flavor so a tap always registers as a tap unless the
+    // key is genuinely held, even with fast rollover into the next keypress. Note this
+    // means holding RET/SPACE/TAB/BSPC no longer auto-repeats via the OS.
+    thumb_lt: thumb_layer_tap {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <175>;
+      flavor = "balanced";
+      bindings = <&mo>, <&kp>;
+    };
   };
 
   // Activate ADJUST layer by pressing raise and lower
@@ -64,13 +76,13 @@
       // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
       // |  TAB  | A/GUI|S/ALT|D/CTRL|F/SHFT|  G   |                   |  H   |J/SHFT|K/CTRL |L/ALT |;/GUI  |   '   |
       // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  | PLAY  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-      //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+      //               | GUI | ALT  | CTRL |LOW/TAB|RAISE/RET| |RAISE/SPC|LOW/BSPC| CTRL | ALT   | GUI  |
       bindings = <
         &kp GRAVE &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp GRAVE
         &kp ESC   &kp Q  &kp W    &kp E    &kp R     &kp T                            &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
         &kp TAB   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G              &kp H  &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
         &kp LSHFT &kp Z  &kp X    &kp C    &kp V     &kp B   &kp C_MUTE &kp C_PLAY    &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &kp LGUI &kp LALT &kp LCTRL &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &kp RCTRL &kp RALT  &kp RGUI
+        &kp LGUI &kp LALT &kp LCTRL &thumb_lt LOWER TAB &thumb_lt RAISE RET  &thumb_lt RAISE SPACE  &thumb_lt LOWER BSPC  &kp RCTRL &kp RALT  &kp RGUI
       >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_PREV C_NEXT>;
