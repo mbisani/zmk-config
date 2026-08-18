@@ -61,11 +61,16 @@ exact key.
 
 ![Sofle Choc Pro keymap](docs/sofle_choc_pro-keymap.svg)
 
-A print-friendly version is at
-[`docs/sofle_choc_pro-keymap.pdf`](docs/sofle_choc_pro-keymap.pdf).
+A single-page PDF is at
+[`docs/sofle_choc_pro-keymap.pdf`](docs/sofle_choc_pro-keymap.pdf) — its page
+is sized to exactly fit the diagram (all layers stacked), so it's too tall for
+a printed sheet. For printing, use
+[`docs/sofle_choc_pro-keymap-print.pdf`](docs/sofle_choc_pro-keymap-print.pdf)
+instead: the same diagram tiled across portrait A4 pages, scaled to fill each
+page's width.
 
-Both are generated from the actual `.keymap` + physical layout devicetree via
-[keymap-drawer](https://github.com/caksoylar/keymap-drawer), so they can't
+All three are generated from the actual `.keymap` + physical layout devicetree
+via [keymap-drawer](https://github.com/caksoylar/keymap-drawer), so they can't
 drift from the real bindings. To regenerate after editing the keymap:
 
 ```sh
@@ -73,5 +78,5 @@ drift from the real bindings. To regenerate after editing the keymap:
 ```
 
 This creates a throwaway Python venv (`.venv-keymap-drawer/`, gitignored) with
-`keymap-drawer` installed, and uses `rsvg-convert` (`brew install librsvg`)
-for the PDF if it's available.
+`keymap-drawer` and `pdfposter` installed, and uses `rsvg-convert`
+(`brew install librsvg`) for the PDF if it's available.
