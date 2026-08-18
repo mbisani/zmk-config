@@ -89,6 +89,10 @@ Custom fork of the stock nice!view display shield (`boards/shields/nice_view_dis
 
 Each JSON defines one or more named physical layouts (key `x`/`y`/rotation coordinates consumed by the ZMK Studio keymap editor) plus `sensors` metadata for rotary encoders. The `.keymap`'s `chosen { zmk,physical-layout = &default_layout; }` selects which layout node (from the matching `-layouts.dtsi`) is active — keep the `.json` layout and the devicetree layout node in sync when changing physical key count/position.
 
+## Markdown formatting
+
+`README.md` is formatted with [Prettier](https://prettier.io) (`printWidth: 78`, `proseWrap: always`, config in `.prettierrc`). After editing it, run `npm install` (once) then `npm run format` — don't hand-wrap paragraphs. This is not yet applied to `CLAUDE.md` or other `.md` files in the repo.
+
 ## Conventions when editing keymaps
 
 - Match existing ASCII-art comment banners above each layer's `bindings` block — they document the physical key grid and are the primary way to review a layout change without loading it into a simulator.

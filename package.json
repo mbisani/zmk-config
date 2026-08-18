@@ -1,0 +1,10 @@
+{
+  "name": "zmk-config",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  },
+  "scripts": {
+    "format": "prettier --write README.md"
+  }
+}
