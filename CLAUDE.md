@@ -74,8 +74,8 @@ For each board `<name>` there are two parallel locations that must stay in sync:
 ### Keymap layer conventions — inconsistent across boards, know this before editing
 
 - `corne_choc_pro` and `piantor_pro_bt` keymaps use a **shared, modern layout**: layers named `default_layer` (QWERTY) → `lower_layer` (NUMBER, `mo 1`) → `raise_layer` (SYMBOL, `mo 2`) → six empty `extra_layer_N` placeholders. Media keys, RGB, Bluetooth profile switching (`bt BT_SEL 0-4`, `bt BT_CLR`), `sys_reset`, `bootloader`, and `studio_unlock` live on `lower_layer`.
-- `sofle_choc_pro` still uses an **older 4-layer scheme**: `default_layer` → `lower_layer` → `raise_layer` → `adjust_layer`, with a `conditional_layers` node that auto-activates `adjust_layer` when both LOWER and RAISE are held. It also uses `ext_power` (not present on the other two boards).
-- If you're asked to bring feature parity to `sofle_choc_pro` or unify layouts, note the layer *names differ* (`adjust_layer` has no equivalent on the other two boards) and the physical matrix differs (sofle is a 6-column layout, corne/piantor are similar but corne includes thumb-cluster arcs — see each `.json`'s `layout` coordinates).
+- `sofle_choc_pro` still uses an **older 4-layer scheme**, but with mnemonic layer names: `alpha_layer` (QWERTY) → `sym_layer` (numbers/symbols/F-keys) → `nav_layer` (arrows/nav/BT) → `sys_layer` (RGB/power/reset), with a `conditional_layers` node that auto-activates `sys_layer` when both SYM and NAV are held. It also uses `ext_power` (not present on the other two boards).
+- If you're asked to bring feature parity to `sofle_choc_pro` or unify layouts, note the layer *names differ* (`sys_layer` has no equivalent on the other two boards) and the physical matrix differs (sofle is a 6-column layout, corne/piantor are similar but corne includes thumb-cluster arcs — see each `.json`'s `layout` coordinates).
 - Encoders: `corne_choc_pro` and `sofle_choc_pro` define `sensor-bindings` (volume/page/track scroll via `inc_dec_kp`) only on layers where they're set; `piantor_pro_bt` has no encoder and no `sensor-bindings`.
 
 ### `nice_view_disp` shield
@@ -92,5 +92,5 @@ Each JSON defines one or more named physical layouts (key `x`/`y`/rotation coord
 ## Conventions when editing keymaps
 
 - Match existing ASCII-art comment banners above each layer's `bindings` block — they document the physical key grid and are the primary way to review a layout change without loading it into a simulator.
-- `&trans` fills unused positions on layers that pass through to the layer below; `&none` (used only in sofle's `adjust_layer`) means "do nothing," not "pass through" — don't mix them up when porting bindings between boards.
+- `&trans` fills unused positions on layers that pass through to the layer below; `&none` (used only in sofle's `sys_layer`) means "do nothing," not "pass through" — don't mix them up when porting bindings between boards.
 - ZMK Studio integration (`studio_unlock`, the `studio-rpc-usb-uart` snippet, `CONFIG_ZMK_STUDIO=y`) is enabled repo-wide; don't remove `studio_unlock` bindings without checking `build.yaml` still needs the snippet.
