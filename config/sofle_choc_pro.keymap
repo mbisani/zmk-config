@@ -110,16 +110,16 @@
     nav_layer {
       display-name = "nav";
       // ------------------------------------------------------------------------------------------------------------
-      // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
-      // |       | INS  | PSCR | GUI   |       |      |                | PGUP | HOME |   ^   | END  |       |       |
-      // |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
-      // |       | UNDO | CUT  | COPY  | PASTE | STUD |      |  |      |      |      |       |      |       |       |
+      // |       |     |      |      |      |      |                |      |      |       |      |       |       |
+      // |       |     |      |      |      |      |                | PGUP | HOME |   ^   | END  |       |       |
+      // |       |A/GUI|S/ALT |D/CTRL|F/SHFT|      |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
+      // |       |     |      |      |      |      |      |  |      |      |      |       |      |       |       |
       //                |      |       |       |      |      |  |      |      |      |       |      |
       bindings = <
-        &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                      &trans    &trans    &trans    &trans     &trans   &trans
-        &trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                            &kp PG_UP &kp HOME  &kp UP    &kp END    &trans   &trans
-        &trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                          &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
-        &trans     &kp K_UNDO   &kp K_CUT    &kp K_COPY   &kp K_PASTE  &studio_unlock  &trans  &trans    &trans    &trans    &trans    &trans     &trans   &trans
+        &trans     &trans       &trans       &trans       &trans       &trans                            &trans    &trans    &trans    &trans     &trans   &trans
+        &trans     &trans       &trans       &trans       &trans       &trans                            &kp PG_UP &kp HOME  &kp UP    &kp END    &trans   &trans
+        &trans     &trans       &trans       &trans       &trans       &trans                            &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
+        &trans     &trans       &trans       &trans       &trans       &trans          &trans  &trans    &trans    &trans    &trans    &trans     &trans   &trans
                                 &trans       &trans       &trans       &trans          &trans  &trans    &trans    &trans    &trans    &trans
       >;
 
@@ -131,14 +131,14 @@
       // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
       // | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
       // |        | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
-      // |        | SYSRST  | BOOT    |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
+      // |        | SYSRST  | BOOT    | STUD    |         |         | RGB_TOG | |      |      |      |       |      |       |       |
       //                    |         |         |         |         |         | |      |      |      |       |      |
       display-name = "sys";
       bindings = <
         &bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                            &none &none &none &none &none &none
         &ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                         &none &none &none &none &none &none
         &none             &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none           &none           &none                                   &none &none &none &none &none &none
-        &none             &sys_reset      &bootloader     &none           &none           &none            &rgb_ug RGB_TOG &none  &none &none &none &none &none &none
+        &none             &sys_reset      &bootloader     &studio_unlock  &none           &none            &rgb_ug RGB_TOG &none  &none &none &none &none &none &none
         &none           &none           &none           &none            &none           &none  &none &none &none &none
       >;
     };
