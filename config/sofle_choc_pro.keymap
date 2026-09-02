@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/modifiers.h>
 
 #define ALPHA 0
 #define NUM 1
@@ -57,6 +58,23 @@
       flavor = "balanced";
       bindings = <&mo>, <&kp>;
     };
+
+    // Frees up the home-row key right of L for MINUS: comma/period keep their
+    // tap behavior, but shift-tap yields semicolon/colon instead of the usual
+    // </> (which already live on sym_layer).
+    comma_semi: comma_semi {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp COMMA>, <&kp SEMI>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    dot_colon: dot_colon {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp DOT>, <&kp COLON>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
   };
 
   // Activate SYS layer by pressing nav and sym together
@@ -76,14 +94,14 @@
       // ------------------------------------------------------------------------------------------------------------
       // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
       // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
-      // |  TAB  | A/GUI|S/ALT|D/CTRL|F/SHFT|  G   |                   |  H   |J/SHFT|K/CTRL |L/ALT |;/GUI  |   '   |
-      // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  | PLAY  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+      // |  TAB  | A/GUI|S/ALT|D/CTRL|F/SHFT|  G   |                   |  H   |J/SHFT|K/CTRL |L/ALT |-/GUI  |   '   |
+      // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  | PLAY  |  N   |  M    | ,/;   | ./:  |   /   | SHIFT |
       //               | GUI | ALT  | CTRL |NUM/TAB| NAV/RET | | FN/SPC  |SYM/BSPC| CTRL | ALT   | GUI  |
       bindings = <
         &kp GRAVE &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp GRAVE
         &kp ESC   &kp Q  &kp W    &kp E    &kp R     &kp T                            &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
-        &kp TAB   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G              &kp H  &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
-        &kp LSHFT &kp Z  &kp X    &kp C    &kp V     &kp B   &kp C_MUTE &kp C_PLAY    &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+        &kp TAB   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G              &kp H  &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI MINUS &kp SQT
+        &kp LSHFT &kp Z  &kp X    &kp C    &kp V     &kp B   &kp C_MUTE &kp C_PLAY    &kp N  &kp M     &comma_semi &dot_colon  &kp FSLH &kp RSHFT
         &kp LGUI &kp LALT &kp LCTRL &thumb_lt NUM TAB &thumb_lt NAV RET  &thumb_lt FN SPACE  &thumb_lt SYM BSPC  &kp RCTRL &kp RALT  &kp RGUI
       >;
 
