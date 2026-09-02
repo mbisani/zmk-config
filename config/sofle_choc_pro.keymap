@@ -93,14 +93,14 @@
     num_layer {
       display-name = "num";
       // ------------------------------------------------------------------------------------------------------------
-      // |       |     |      |      |      |      |                   |      |       |       |      |       |       |
-      // |       |     |      |      |      |      |                   |      |   7   |   8   |  9   |   -   |       |
+      // |       |     |      |      |      |      |                   |  €   |       |       |      |       |       |
+      // |       |     |      |      |      |      |                   |  :   |   7   |   8   |  9   |   -   |       |
       // |       |     |      |      |      |      |                   |  ,   |   4   |   5   |  6   |   +   |       |
       // |       |     |      |      |      |      |        |  |       |  .   |   1   |   2   |  3   |   0   |       |
       //               |      |      |      |      |        |  |       |      |       |       |      |
       bindings = <
-        &trans &trans &trans &trans &trans &trans                    &trans     &trans &trans &trans &trans    &trans
-        &trans &trans &trans &trans &trans &trans                    &trans     &kp N7 &kp N8 &kp N9 &kp MINUS &trans
+        &trans &trans &trans &trans &trans &trans                    &kp LS(LA(N2)) &trans &trans &trans &trans    &trans
+        &trans &trans &trans &trans &trans &trans                    &kp COLON  &kp N7 &kp N8 &kp N9 &kp MINUS &trans
         &trans &trans &trans &trans &trans &trans                    &kp COMMA  &kp N4 &kp N5 &kp N6 &kp PLUS  &trans
         &trans &trans &trans &trans &trans &trans &trans      &trans &kp DOT    &kp N1 &kp N2 &kp N3 &kp N0    &trans
                       &trans &trans &trans &trans  &trans   &trans   &trans &trans &trans &trans
