@@ -15,16 +15,19 @@ together auto-activates `SYS`.
   keyboard so it stays easy to switch back and forth with the MacBook
   keyboard. Left thumb row: `GUI ALT CTRL NUM/TAB NAV/ENTER`; right thumb row:
   `FN/SPACE SYM/BSPC CTRL ALT GUI`. A `MUTE`/`PLAY` pair sits in the top-right
-  corner of each half's inner column. Home-row mods on `A S D F` / `J K L -`
-  mirror the thumb-key order (`GUI ALT CTRL SHIFT`, pinky→index on the left,
-  mirrored on the right) — hold for the modifier, tap for the letter. The `,`
-  and `.` keys are mod-morphed: tap for `,`/`.`, shift-tap for `;`/`:`
-  (freeing the home row for `-` since `;`/`:` are rare in prose and already
-  live on `sym`). Tuned as balanced hold-taps restricted to cross-hand key
-  presses (via `hold-trigger-key-positions`) so same-hand rolls like `as` or
-  `fr` resolve as taps, not accidental modifiers. The left thumb's
-  innermost/next-out keys tap `ENTER`/`TAB` and hold for `NAV`/`NUM`; the
-  right thumb's innermost/next-out keys tap `SPACE`/`BSPC` and hold for
+  corner of each half's inner column. `'` and `-` sit one row up/down from
+  their stock positions to move `P` onto the home row: `'` is now on the top
+  row (replacing `P`), `P` is on the home row (replacing `-`), and `-` is on
+  the bottom row (replacing `/`, which moved to `sym`). Home-row mods on
+  `A S D F` / `J K L P` mirror the thumb-key order (`GUI ALT CTRL SHIFT`,
+  pinky→index on the left, mirrored on the right) — hold for the modifier, tap
+  for the letter. The `,` and `.` keys are mod-morphed: tap for `,`/`.`,
+  shift-tap for `;`/`:` (since `;`/`:` are rare in prose and were otherwise
+  only reachable via `sym`). Tuned as balanced hold-taps restricted to
+  cross-hand key presses (via `hold-trigger-key-positions`) so same-hand rolls
+  like `as` or `fr` resolve as taps, not accidental modifiers. The left
+  thumb's innermost/next-out keys tap `ENTER`/`TAB` and hold for `NAV`/`NUM`;
+  the right thumb's innermost/next-out keys tap `SPACE`/`BSPC` and hold for
   `FN`/`SYM`. These are also balanced hold-taps, so a genuine hold (not just
   fast rollover into the next key) is required to activate the layer — the
   trade-off is that holding `ENTER`/`SPACE`/`TAB`/`BSPC` no longer
@@ -33,13 +36,14 @@ together auto-activates `SYS`.
   free right hand. Numpad-style, shifted onto the index finger's home column:
   `7 8 9` on the top row, `4 5 6` on the home row, `1 2 3` on the bottom row,
   `0` next to the `3`. The freed column and the column right of the numbers
-  carry `, .` (at the `H`/`N` positions) and `+ -` (at the `;`/`P` positions).
+  carry `, .` (at the `H`/`N` positions) and `+ -` (at the `P`/`'` positions).
   Left half unused.
 - **sym (SYMBOL)** — held via the right thumb (`BSPC`), symbols typed with the
   free left hand. Each row's index/center columns hold one bracket pair —
   `()`, `[]`, `{}`, `<>` top to bottom by frequency — with the remaining
-  symbols (`` ` ``, `!@#$%^&*`, `=-+`, `;:\|`) filling the rest. Right half
-  unused.
+  symbols (`` ` ``, `!@#$%^&*`, `=-+`, `~\|/`) filling the rest. `;`/`:`
+  aren't duplicated here since they're already reachable via `alpha`'s
+  comma/period mod-morph. Right half unused.
 - **nav (NAV)** — held via the left thumb (`ENTER`). Arrow keys and
   `HOME`/`END`/`PGUP`/`PGDN`/`DEL`/`BSPC` under the right hand for navigation.
   Left half is all `&trans`, so the home-row mods fall through from `alpha`
