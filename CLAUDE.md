@@ -58,7 +58,7 @@ uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
 
 To add a new board/shield combination, edit `build.yaml`; to test a change, push/open a PR and let CI build it (there's no faster local iteration loop).
 
-If you need to validate `.dtsi`/`.overlay`/`.keymap` syntax before pushing, use the [ZMK web-based keymap editor / GitHub Actions logs](https://zmk.dev) — do not attempt to invoke `west build` locally unless a full Zephyr/ZMK toolchain is already set up outside this repo.
+If you need to validate `.dtsi`/`.overlay`/`.keymap` syntax before pushing, use the [ZMK web-based keymap editor / GitHub Actions logs](https://zmk.dev) — do not attempt to invoke `west build` locally unless a full Zephyr/ZMK toolchain is already set up outside this repo. No ZMK/Zephyr toolchain is installed on this machine — don't go looking for one (e.g. searching the filesystem root for `dt-bindings`/`keys.h` or similar Zephyr headers); there's nothing to find, and it's a slow, wasteful search.
 
 ## Architecture
 
