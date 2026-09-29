@@ -21,17 +21,19 @@ together auto-activates `SYS`.
   the bottom row (replacing `/`, which moved to `sym`). Home-row mods on
   `A S D F` / `J K L P` mirror the thumb-key order (`GUI ALT CTRL SHIFT`,
   pinky→index on the left, mirrored on the right) — hold for the modifier, tap
-  for the letter. The `,` and `.` keys are mod-morphed: tap for `,`/`.`,
-  shift-tap for `;`/`:` (since `;`/`:` are rare in prose and were otherwise
-  only reachable via `sym`). Tuned as balanced hold-taps restricted to
-  cross-hand key presses (via `hold-trigger-key-positions`) so same-hand rolls
-  like `as` or `fr` resolve as taps, not accidental modifiers. The left
-  thumb's innermost/next-out keys tap `ENTER`/`TAB` and hold for `NAV`/`NUM`;
-  the right thumb's innermost/next-out keys tap `SPACE`/`BSPC` and hold for
-  `FN`/`SYM`. These are also balanced hold-taps, so a genuine hold (not just
-  fast rollover into the next key) is required to activate the layer — the
-  trade-off is that holding `ENTER`/`SPACE`/`TAB`/`BSPC` no longer
-  auto-repeats via the OS.
+  for the letter. Three keys are mod-morphed so shift-tap gives something
+  other than the stock shifted character: `,`/`.` give `;`/`:` (rare in prose,
+  otherwise only reachable via `sym`); `'` gives `"` unshifted and `'` shifted
+  (`"` comes up far more, e.g. in code); `-` gives `?` shifted instead of `_`
+  (`?` is used more than `_`, which moved to `sym`). Tuned as balanced
+  hold-taps restricted to cross-hand key presses (via
+  `hold-trigger-key-positions`) so same-hand rolls like `as` or `fr` resolve
+  as taps, not accidental modifiers. The left thumb's innermost/next-out keys
+  tap `ENTER`/`TAB` and hold for `NAV`/`NUM`; the right thumb's
+  innermost/next-out keys tap `SPACE`/`BSPC` and hold for `FN`/`SYM`. These
+  are also balanced hold-taps, so a genuine hold (not just fast rollover into
+  the next key) is required to activate the layer — the trade-off is that
+  holding `ENTER`/`SPACE`/`TAB`/`BSPC` no longer auto-repeats via the OS.
 - **num (NUMBER)** — held via the left thumb (`TAB`), numbers typed with the
   free right hand. Numpad-style, shifted onto the index finger's home column:
   `7 8 9` on the top row, `4 5 6` on the home row, `1 2 3` on the bottom row,
@@ -41,8 +43,11 @@ together auto-activates `SYS`.
 - **sym (SYMBOL)** — held via the right thumb (`BSPC`), symbols typed with the
   free left hand. Each row's index/center columns hold one bracket pair —
   `()`, `[]`, `{}`, `<>` top to bottom by frequency — with the remaining
-  symbols (`` ` ``, `!@#$%^&*`, `=-+`, `~\|/`) filling the rest. `;`/`:`
-  aren't duplicated here since they're already reachable via `alpha`'s
+  symbols filling the rest: `~` in the top-left corner (`` ` `` isn't
+  duplicated here, it's still reachable via `alpha`'s corners), `!@#$%^&*`
+  along the top two rows, `=-+` on the third row, and `_\|/` on the bottom
+  row. `_` lives here now that `alpha`'s shift+`-` gives `?` instead; `;`/`:`
+  aren't duplicated here either since they're already reachable via `alpha`'s
   comma/period mod-morph. Right half unused.
 - **nav (NAV)** — held via the left thumb (`ENTER`). Arrow keys and
   `HOME`/`END`/`PGUP`/`PGDN`/`DEL`/`BSPC` under the right hand for navigation.
